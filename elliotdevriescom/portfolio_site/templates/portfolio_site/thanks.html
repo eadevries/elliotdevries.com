@@ -1,0 +1,13 @@
+{% extends 'portfolio_site/base.html' %}
+
+{% block title %}Thank you for submitting your message{% endblock title %}
+
+{% block content %}
+    <section class="bg-dark text-light pt-3 pb-4 py-md-5">
+    <div class="container text-center">
+        <h1 class="display-4">Thanks!</h1>
+        <p class="message-confirmation lead">Your message has been sent.</p>
+        <p>Return to the <a href="{% url 'home' %}" class="text-info font-weight-bold">home page</a></p>
+    </div>
+    </section>
+{% endblock content %}

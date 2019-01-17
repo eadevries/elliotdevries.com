@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+            crossorigin="anonymous"
+        />
+        {% load static %}        
+        <link rel="stylesheet" type="text/css" href="{% static 'portfolio_site/styles.css' %}" />
+        <title>{% block title %}Default Title{% endblock title %}</title>
+
+
+    <body class="bg-light">
+        <!-- NAV -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <!-- <a href="#" class="navbar-brand">EdV</a> -->
+                <button
+                    class="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#collapse-target"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapse-target">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar-item">
+                            <a href="{% url 'home' %}" class="nav-link text-uppercase">Home</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a
+                                href="{% url 'home' %}#code-section"
+                                class="nav-link text-uppercase"
+                                >Code</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a
+                                href="{% url 'home' %}#bio-section"
+                                class="nav-link text-uppercase"
+                                >Bio</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a
+                                href="{% url 'home' %}#contact-section"
+                                class="nav-link text-uppercase"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HEADER -->
+        <section class="text-light mb-0 pt-5 pb-4" id="header-section">
+            <div class="container">
+                <h1 class="display-3 text-nowrap">Elliot de Vries</h1>
+                <p class="px-1">
+                    <span class="lead"
+                        >Coder, Technologist and Life-long Learner</span
+                    >
+                </p>
+            </div>
+        </section>
+
+        {% block content %}Default Content{% endblock content %}
+
+        <!-- FOOTER -->
+        <footer id="main-footer" class="py-4">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mx-auto">
+                        <div class="social-media container">
+                            <a
+                                href="https://github.com/eadevries"
+                                target="_blank"
+                                ><i class="fab fa-github fa-3x text-dark"></i
+                            ></a>
+                            <a href="#" target="_blank"
+                                ><i class="fab fa-linkedin fa-3x text-dark"></i
+                            ></a>
+                            <a
+                                href="https://twitter.com/elliotadevries"
+                                target="_blank"
+                                ><i class="fab fa-twitter fa-3x text-dark"></i
+                            ></a>
+                        </div>
+                        <p class="lead">Copyright &copy; 2019</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

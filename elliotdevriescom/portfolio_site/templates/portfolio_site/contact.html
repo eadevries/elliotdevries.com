@@ -1,0 +1,57 @@
+{% extends 'portfolio_site/base.html' %}
+
+{% block title %}Contact Elliot{% endblock title %}
+
+{% block content %}
+<section class="bg-dark text-light pt-3 pb-4 py-md-5">
+    <div class="container">
+        <p class="contact-form-message">Thank you for reaching out. Please be sure to include a working email. 
+        For questions or potential opportunities I should be back in touch 
+        shortly</p>
+        <form class="contact-form mt-4 mt-md-5 mx-auto" action="{% url 'get_message' %}" method='post'>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="non-field-form-errors">{{ form.non_field_errors }}</div>
+            {% endif %}
+            <div class="contact-form-grid pb-3">
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                <div class="fieldWrapper">
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+                <label for="{{ form.organization.id_for_label }}">Organization:</label>
+                <div class="fieldWrapper">
+                    {{ form.organization }}
+                    {{ form.organization.errors }}                
+                </div>
+                <label for="{{ form.location.id_for_label }}">Location:</label>
+                <div class="fieldWrapper">
+                    {{ form.location }}
+                    {{ form.location.errors }}
+                </div>
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                <div class="fieldWrapper">             
+                    {{ form.email }}
+                    {{ form.email.errors }}   
+                </div>
+                <label for="{{ form.subject.id_for_label }}">Subject:</label>
+                <div class="fieldWrapper">               
+                    {{ form.subject }}
+                    {{ form.subject.errors }} 
+                </div>
+                <label class="message-label" for="{{ form.body.id_for_label }}">Message:</label>
+                <div class="fieldWrapper">            
+                    {{ form.body }}
+                    {{ form.body.errors }}    
+                </div>
+                <label for="{{ form.urgency.id_for_label }}">Urgency:</label>
+                <div class="fieldWrapper">         
+                    {{ form.urgency }}
+                    {{ form.urgency.errors }} 
+                </div>
+                <div class="submit-button"><input class="btn btn-light" type="submit" value="Submit"></div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}
