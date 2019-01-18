@@ -1,3 +1,9 @@
+h1 {
+    font-size: 3.8rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
 ul {
     list-style-type: none;
 }
@@ -54,17 +60,33 @@ ul {
     padding-right: 0.2rem;
 }
 
+.contact-form-grid > label {
+    padding-bottom: 0.1rem;
+    padding-top: 0.3rem;
+}
+
+.contact-form-grid > .submit-button {
+    margin-top: 1.5rem;
+}
+
 @media (min-width: 500px) {
+    h1 {
+        font-size: 4.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
     .contact-form-grid {
         align-items: baseline;
         display: grid;
         grid-template-columns: 7rem 20rem;
         grid-column-gap: 1rem;
-        grid-row-gap: 0.3rem;
+        grid-row-gap: 0.6rem;
     }
 
     .contact-form-grid > label {
         justify-self: end;
+        padding: 0;
     }
 
     .contact-form-grid > label.message-label {
@@ -73,6 +95,7 @@ ul {
 
     .contact-form-grid > .submit-button {
         grid-column: 2 / 3;
+        margin-top: 0;
     }
 
     .non-field-form-errors {
