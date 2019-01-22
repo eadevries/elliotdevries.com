@@ -49,6 +49,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'portfolio_site.context_processors.ga_tracking_id'
             ],
         },
     },
@@ -97,3 +98,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = secret.STATIC_ROOT
+
+
+# Google Analytics tracking ID:
+GA_TRACKING_ID = secret.GA_TRACKING_ID
