@@ -14,6 +14,9 @@
                         </p>
                     </div>
                     {% for project in featured_projects %}
+                        {% if forloop.counter == 3 %}
+                            <div class="col-md-4"></div>
+                        {% endif %}
                         {% include "portfolio_site/partials/project_feature.html" %}
                     {% endfor %}
                 </div>
