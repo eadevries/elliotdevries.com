@@ -31,6 +31,19 @@ ul {
     border-radius: 10px;
 }
 
+.code-subsection a {
+    text-decoration: none;
+}
+
+.code-subsection .featured-project-more-details a {
+    color: rgb(230, 230, 180);
+    font-style: italic;
+}
+
+.code-subsection .featured-project-more-details a:hover {
+    color: white;
+}
+
 .contact-form-message {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -118,4 +131,12 @@ ul {
 
 .message-confirmation {
     color: rgb(230, 230, 180);
+}
+
+.project-detail a {
+    color: rgb(230, 230, 180);
+}
+
+.project-detail a:hover {
+    color: white;
 }

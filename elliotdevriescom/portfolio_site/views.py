@@ -1,13 +1,14 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 
 from .forms import ContactForm
-from .models import ContactMessage
+from .models import ContactMessage, Project
 
 
 def home(request):
-    return render(request, 'portfolio_site/home.html')
+    featured_projects = Project.objects.order_by('order')[:3]
+    return render(request, 'portfolio_site/home.html', {'featured_projects': featured_projects})
 
 
 def contact(request):
@@ -25,6 +26,11 @@ def get_message(request):
     else:
         form = ContactForm()
     return render(request, 'portfolio_site/contact.html', {'form': form})
+
+
+def project(request, slug):
+    project = get_object_or_404(Project, slug=slug)
+    return render(request, 'portfolio_site/project.html', {'project': project})
 
 
 def thanks(request):

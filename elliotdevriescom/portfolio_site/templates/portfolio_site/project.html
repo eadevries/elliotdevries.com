@@ -1,0 +1,15 @@
+{% extends 'portfolio_site/base.html' %}
+
+{% block title %}Elliot de Vries | {{ project.name }}
+
+{% endblock title %} {% block content %}
+<div class="project-detail m-0 p-0">
+    <div class="project-icon text-center mt-4">
+        <i class="{{ project.icon_classes }} fa-2x mb-2"></i>
+    </div>
+    <h2 class="text-center mb-4">{{ project.name }}</h2>
+    <div class="bg-dark text-light d-flex justify-content-center pt-4 pb-4">
+        <div class="w-50 center d-flex flex-column">{{ project.full_description | safe }}</div>
+    </div> 
+</div>
+{% endblock content %}

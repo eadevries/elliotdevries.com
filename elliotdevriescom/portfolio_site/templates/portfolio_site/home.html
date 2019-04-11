@@ -13,7 +13,10 @@
                             Working code examples and other technical projects
                         </p>
                     </div>
-                    <div
+                    {% for project in featured_projects %}
+                        {% include "portfolio_site/partials/project_feature.html" %}
+                    {% endfor %}
+                    <!-- <div
                         class="col-md-4 mt-3 text-center"
                     >
                         <div class="code-subsection h-100 pb-3 pt-4 px-1 p-lg-3 pt-lg-4 d-flex flex-column justify-content-between">
@@ -56,7 +59,7 @@
                                 >
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

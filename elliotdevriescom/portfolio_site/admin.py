@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ContactMessage
+from .models import ContactMessage, Project
 
 
 class ContactMessageAdmin(admin.ModelAdmin):
@@ -10,4 +10,10 @@ class ContactMessageAdmin(admin.ModelAdmin):
     search_fields = ['name', 'organization', 'subject', 'email', 'body']
 
 
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('name', 'order', 'slug', 'blurb')
+    prepopulated_fields = {"slug": ("name",)}
+
+
 admin.site.register(ContactMessage, ContactMessageAdmin)
+admin.site.register(Project, ProjectAdmin)
