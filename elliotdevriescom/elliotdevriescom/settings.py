@@ -1,17 +1,16 @@
 import os
 
-import elliotdevriescom.settings_secret as secret
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret.SECRET_KEY
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = "DEBUG" == os.environ.get('DJANGO_DEBUG', 'PRODUCTION')
 
-ALLOWED_HOSTS = [".elliotdevries.com"]
+allowed_host = os.environ.get('DJANGO_ALLOWED_HOSTS')
+ALLOWED_HOSTS = [allowed_host] if allowed_host is not None else None
 
 
 # Application definition
@@ -59,8 +58,16 @@ WSGI_APPLICATION = 'elliotdevriescom.wsgi.application'
 
 
 # Database
-
-DATABASES = secret.DB_CONFIG
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('DJANGO_DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('DJANGO_DB_NAME', os.path.join(BASE_DIR, 'db.sqlite3')),
+        'HOST': os.environ.get('DJANGO_DB_HOST'),
+        'USER': os.environ.get('DJANGO_DB_USER'),
+        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD'),
+        'PORT': os.environ.get('DJANGO_DB_PORT')
+    }
+}
 
 
 # Password validation
@@ -97,8 +104,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATIC_ROOT = secret.STATIC_ROOT
+STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT')
 
 
 # Google Analytics tracking ID:
-GA_TRACKING_ID = secret.GA_TRACKING_ID
+GA_TRACKING_ID = os.environ.get('DJANGO_GA_TRACKING_ID')

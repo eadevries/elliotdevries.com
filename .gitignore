@@ -1,3 +1,3 @@
-elliotdevriescom/elliotdevriescom/settings_*.py
+.env*
 .vscode/
 *.sqlite3
